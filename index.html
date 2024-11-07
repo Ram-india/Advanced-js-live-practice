@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucket list tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body 
+class="bg-gradient-to-r from-indigo-500 to-blue-400 font-sans antialiased leading-normal tracking-normal"
+>
+   <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-8 ">
+        <h1 
+        class="text-3xl font-bold text-center text-gradient bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500 mb-6 uppercase">Bucket List Tracker</h1> 
+        <!-- Add new item selection -->
+        <section class="mb-8">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4 ">Add to bucket list</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                <input type="text" class="p-2 border border-gary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500" id="description" placeholder="what do you want to achive?">
+                <select id="category"
+                class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-pink-500">
+                <option value="travel">Travel</option>
+                <option value="skills">Skills</option>
+                <option value="health">Health</option>
+                <option value="other">other</option>
+                
+            </select>
+            <input type="date" id="target-date"
+            class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-pink-500">
+        </div>
+        <button onclick="addItem()"
+        class="w-full sm:w-auto px-2 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold uppercase rounded-lg hover:from-pink-600 hover:to-purple-600 transition">
+    Add item</button>
+    </section>
+    <!-- Progress section -->
+    <section class="mb-8">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Progress</h2>
+        <div class="w-full bg-gray-300 rounded-full h-4 mb-4">
+             <div id="progress-bar" class="bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full "
+            style="width:0%"></div>
+        </div>
+        <p class="text-gray-600">Completed: <span id="completed-count">0</span>/<span id="total-count"></span>0</span></p>
+        
+    </section>
+    <!-- Filter section -->
+    <section class="mb-8">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Filter by cateagory</h2>
+        <div class="flex gap-4">
+            <label>
+                <input type="radio"
+                 name="filter"
+                 value="All"
+                 onclick="filterItems('All')"
+                 class="mr-1"
+                 checked>All
+            </label>
+            <label>
+                <input type="radio"
+                 name="filter"
+                 value="travel"
+                 onclick="filterItems('travel')"
+                 class="mr-1"
+                 >Tarvel
+            </label>
+            <label>
+                <input type="radio"
+                 name="filter"
+                 value="skills"
+                 onclick="filterItems('skills')"
+                 class="mr-1"
+               >skills
+            </label>
+            <label>
+                <input type="radio"
+                 name="filter"
+                 value="health"
+                 onclick="filterItems('health')"
+                 class="mr-1"
+               >health
+            </label>
+            <label>
+                <input type="radio"
+                 name="filter"
+                 value="other"
+                 onclick="filterItems('other')"
+                 class="mr-1"
+                 >other
+            </label>
+        </div>
+
+    </section>
+    <!-- bucket list display setion -->
+    <section class="mb-8">
+        <h2 >Your bucket list</h2>
+          <!-- dynamic content here -->
+        <ul id="bucket-list" class="space-y-4">
+       
+         </ul>
+
+    </section>
+
+    </div>
+    <script src="./app.js"></script>
+  
+</body>
+</html>
